@@ -3,3 +3,10 @@ process == ('msiexec')
 process_command_line_includes == ('http:', 'https:')
 &&
 process_command_line_includes == ('/q', '-q')
+
+
+
+
+
+URL detection regex (this will need to be set as case insensitive):
+http[s]{0,1}\:\/\/[a-zA-Z0-9]{2,4}\.[a-zA-Z0-9]{2,6}\:8080\/[a-zA-Z0-9]+\/.*?(?:-|\=|\?).*?$
