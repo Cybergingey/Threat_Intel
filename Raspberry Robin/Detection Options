@@ -1,0 +1,5 @@
+process == ('msiexec')
+&&
+process_command_line_includes == ('http:', 'https:')
+&&
+process_command_line_includes == ('/q', '-q')
