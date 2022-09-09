@@ -1,3 +1,4 @@
+C&C:
 process == ('msiexec')
 &&
 process_command_line_includes == ('http:', 'https:')
@@ -5,8 +6,35 @@ process_command_line_includes == ('http:', 'https:')
 process_command_line_includes == ('/q', '-q')
 
 
+PERSISTENCE:
+process == ('odbcconf')
+&&
+process_command_line_includes == ('regsvr)
+&&
+process_command_line_includes == ('/f', '-f')
+||
+process_command_line_includes == ('/a', '-a')
+||
+process_command_line_includes == ('/s', '-s')
+
+C&C p2:
+process == ('regsvr32')
+||
+process == ('rundll32')
+||
+process == ('dllhost')
+&&
+process_command_line_contains == (“”)
+&&
+has_netconnection
 
 
 
 URL detection regex (this will need to be set as case insensitive):
 http[s]{0,1}\:\/\/[a-zA-Z0-9]{2,4}\.[a-zA-Z0-9]{2,6}\:8080\/[a-zA-Z0-9]+\/.*?(?:-|\=|\?|.).*?$
+
+Matches the following formats:
+http[s]://[domain]:8080/[token]/[computername]=[username]
+http[s]://[domain]:8080/[token]/[computername]
+http[s]://[domain]:8080/[token]/[computername]?[username]
+
