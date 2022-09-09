@@ -1,3 +1,4 @@
+Red Canary detection options:
 C&C:
 process == ('msiexec')
 &&
