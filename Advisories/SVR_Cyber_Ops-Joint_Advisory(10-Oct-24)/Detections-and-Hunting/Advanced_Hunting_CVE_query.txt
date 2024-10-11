@@ -1,0 +1,5 @@
+DeviceTvmSoftwareVulnerabilitiesKB
+| join kind=innerunique DeviceTvmSoftwareVulnerabilities on CveId
+| extend software = bag_pack("Affected Software",AffectedSoftware,"Software Name",SoftwareName,"Software Version",SoftwareVersion)
+| summarize make_set(DeviceName),make_set(['software']),DeviceCount=dcount(DeviceName) by CveId,CvssScore,VulnerabilityDescription,PublishedDate,LastModifiedTime,SoftwareVendor,IsExploitAvailable
+| where CveId has_any ("CVE-2023-20198","CVE-2023-4911","CVE-2023-38545","CVE-2023-38546","CVE-2023-40289","CVE-2023-24023","CVE-2023-40088","CVE-2023-40076","CVE-2023-40077","CVE-2023-45866","CVE-2022-40507","CVE-2023-36745","CVE-2023-4966","CVE-2023-6345","CVE-2023-37580","CVE-2021-27850","CVE-2021-41773","CVE-2021-42013","CVE-2018-13379","CVE-2023-42793","CVE-2023-29357","CVE-2023-24955","CVE-2023-35078","CVE-2023-5044","CVE-2022-27924","CVE-2023-42793")
