@@ -1,4 +1,4 @@
 # IOCs
 
-WORK IN PROGRESS, WILL BE AUTOMATING THIS TO AUTO GRAB IOCs...........
-I will slowly compile lists of IOCs gathered from recent attacks/attacks I have come across.
+WORK IN PROGRESS!.....
+I will slowly compile lists of IOCs,Threats, Advisories gathered from recent attacks/reports I have come across.
